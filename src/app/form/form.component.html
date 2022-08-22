@@ -1,0 +1,115 @@
+    <div class="form-content">
+        <form class="form">
+            <div class="form-head">Employee Payroll Form</div>
+            <div class="row-content">
+                <label for="firstName" class="label text">First Name</label>
+               
+                <input type="text" name="firstName" id="firstName" #fname="ngModel" minlength="3" pattern="^[A-Z][a-zA-Z]+$"  class="input required" [(ngModel)]="employee.firstName" 
+                    placeholder="Your first Name " autocomplete="off" required><br/>
+                <span class="text-error" for="text" *ngIf="fname.touched && fname.invalid" >firsr name is invalid</span>
+                <span class="text-error" for="text" *ngIf="fname.errors?.['minlength']" >min length shoulb be 3</span>
+                <span class="text-error" for="text" *ngIf="fname.errors?.['pattern']"  >invalid user firstName</span>
+            </div>
+            <div class="row-content">
+                <label for="lastName" class="label text">last Name</label>
+                
+                <input type="text" name="lastName" id="lastName" #lname="ngModel" minlength="3" pattern="^[A-Z][a-zA-Z]+$" class="input required" [(ngModel)]="employee.lastName"
+                    placeholder="Your last Name " autocomplete="off" required><br />
+                    <span class="text-error" for="text" *ngIf="lname.touched && fname.invalid" >last name is invalid</span>
+                    <span class="text-error" for="text" *ngIf="lname.errors?.['minlength']" >min length shoulb be 3</span>
+                    <span class="text-error" for="text" *ngIf="lname.errors?.['pattern']"  >invalid user firstName</span>
+            
+                </div>
+
+            <div class="row-content">
+                <label class="label text" for="profile">Profile Image</label>
+                <div class="profile-radio-content">
+                    <label>
+                       
+                        <input type="radio" id="profile2" name="profile" value="../assets/profile_img-1.png"
+                            [(ngModel)]="employee.profilePic" required>
+                        <img class="profile" id="image1" src="../assets/profile_img-1.png">
+                    </label>
+                    <label>
+                        <input type="radio" id="profile2" name="profile" value="../assets/profile_img-2.png"
+                            [(ngModel)]="employee.profilePic" required>
+                        <img class="profile" id="image2" src="../assets/profile_img-2.png">
+                    </label>
+                    <label>
+                        <input type="radio" id="profile3" name="profile" value="../assets/profile_img-3.png"
+                            [(ngModel)]="employee.profilePic" required>
+                        <img class="profile" id="image3" src="../assets/profile_img-3.png">
+                    </label>
+                    <label>
+                        <input type="radio" id="profile4" name="profile" value="../assets/profile_img-4.png"
+                            [(ngModel)]="employee.profilePic" required>
+                        <img class="profile" id="image4" src="../assets/profile_img-4.png">
+                    </label>
+                </div>
+            </div>
+
+            <div class="row-content">
+                <label class="label text" for="gender">Gender</label>
+                <div>
+                    
+                    <input type="radio" id="male" name="gender" value="Male" [(ngModel)]="employee.gender" required  >
+                    <label class="text" for="male">Male</label>
+                    <input type="radio" id="female" name="gender" value="Female" [(ngModel)]="employee.gender" required>
+                    <label class="text" for="female">Female</label>
+                </div>
+            </div>
+
+            <div class="row-content">
+                <label class="label text" for="department">Department</label>
+                <div>
+                  
+                    <input type="checkbox" class="checkbox" id="hr" (click)="getVal('HR')"
+                        [ngModel]="employee.department=='HR'" name="department1" value="HR">
+                    <label for="hr">HR</label>
+
+                    <input type="checkbox" class="checkbox" id="sales" (click)="getVal('Sales')"
+                        [ngModel]="employee.department=='Sales'" name="department2" value="Sales">
+                    <label for="sales">Sales</label>
+                    <input type="checkbox" class="checkbox" id="finance" (click)="getVal('Finance')"
+                        [ngModel]="employee.department=='Finance'" name="department3" value="Finance">
+                    <label for="finance">Finance</label>
+                    <input type="checkbox" class="checkbox" id="engineer" (click)="getVal('Engineer')"
+                        [ngModel]="employee.department=='Engineer'" name="department4" value="Engineer">
+                    <label for="engineer">Engineer</label>
+                    <input type="checkbox" class="checkbox" id="others" (click)="getVal('Others')"
+                        [ngModel]="employee.department=='Others'" name="department5" value="Others">
+                    <label for="others">Others</label>
+                </div>
+            </div>
+
+            <div class="row-content">
+                <label class="label text" for="salary">Choose Your Salary: </label>
+                <input class="input required" type="range" name="salary" id="salary" min="300000" max="800000" step="100"
+                    value="400000" [(ngModel)]="employee.salary">
+                <output class="salary-output text" for="salary">800000</output>
+            </div>
+
+            <div class="row-content">
+                <label class="label text" for="StartDate">Start Date</label>
+                <input type="date" class="startDate" id="StartDate" name="date" [(ngModel)]="employee.date" required>
+            </div>
+
+            <div class="row-content">
+                <label class="label text" for="notes">Notes</label>
+                <textarea id="notes" class="input required" name="Notes" placeholder="Tell Something About Yourself."
+                    style="height:100px" [(ngModel)]="employee.notes"></textarea>
+            </div>
+
+            <div class="buttonParent">
+                <button class="resetButton button cancelButton" (click)="onCancel()">Cancel</button>
+                <div class="submit-reset">
+                    <button type="submit" class="button submitButton" id="submitButton" *ngIf="this.Id==null"
+                        (click)="addEmployeeData()">Submit</button>
+                        
+                    <button class="button" *ngIf="this.Id!=null" (click)="updateEmployeeData()">update</button>&nbsp;&nbsp;
+                    <button type="reset" class="resetButton button">Reset</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
