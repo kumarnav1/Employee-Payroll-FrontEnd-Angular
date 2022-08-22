@@ -16,7 +16,5 @@ export class EmployeeModel {
         this.salary = salary;
         this.notes=notes;
         this.gender=gender;
-
     }
-
 }

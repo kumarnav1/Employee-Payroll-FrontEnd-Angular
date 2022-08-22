@@ -11,6 +11,4 @@ export class ErrorPageComponent implements OnInit {
   
   ngOnInit(): void {
   }
-  firstName:String="mukul billore";
-
 }

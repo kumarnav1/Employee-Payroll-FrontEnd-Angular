@@ -46,7 +46,6 @@ body {
     color: #42515f;
 }
 
-/* UC 2 */
 
 .form-content {
     min-height: calc(100% - 80px);
@@ -114,7 +113,6 @@ label {
     
 }
 
-/* UC 3 */
 
 .profile-radio-content {
     display: flex;
@@ -133,7 +131,6 @@ label {
     margin-left: 12px;
 }
 
-/* UC 5 */
 
 select {
     padding: 12px;
@@ -146,8 +143,6 @@ select {
     background-color: transparent;
     margin-right: 20px;
 }
-
-/* UC 6 */
 
 .buttonParent {
     display: flex;

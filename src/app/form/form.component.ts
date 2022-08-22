@@ -12,9 +12,7 @@ import { EmployeeModel } from '../EmployeeModel';
 export class FormComponent implements OnInit {
  
   employee: EmployeeModel = new EmployeeModel("",new Date,"", "","","", 0, "");
-
   Id: any = this.route.snapshot.paramMap.get("Id");
-
   constructor(private router: Router, private service: EmployeeService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -22,15 +20,9 @@ export class FormComponent implements OnInit {
     console.log(getData);
     this.employee = getData;
   });
-    
   }
 
   onCancel() {
-    this.router.navigate(["error"]);
-    setTimeout(function(){
-      
-    },3000);
-
     this.router.navigate(["dashboard"]);
   }
 
@@ -44,11 +36,10 @@ export class FormComponent implements OnInit {
     this.service.insertEmployee(this.employee).subscribe((data:any) => {
       this.router.navigate(["dashboard"])
     })
-  
   }
 
   updateEmployeeData() {
-    this.service.updateEmployeeById(this.employee, this.Id).subscribe ((data:any) => {
+    this.service.updateEmployeeById(this.employee, this.Id).subscribe((data:any) => {
       this.router.navigate(["dashboard"])
     });
   }
