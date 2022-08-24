@@ -6,9 +6,9 @@
                
                 <input type="text" name="firstName" id="firstName" #fname="ngModel" minlength="3" pattern="^[A-Z][a-zA-Z]+$"  class="input required" [(ngModel)]="employee.firstName" 
                     placeholder="Your first Name " autocomplete="off" required><br/>
-                <span class="text-error" for="text" *ngIf="fname.touched && fname.invalid" >First name is invalid</span>
-                <span class="text-error" for="text" *ngIf="fname.errors?.['minlength']" >min length should be 3</span>
-                <span class="text-error" for="text" *ngIf="fname.errors?.['pattern']"  >invalid user firstName</span>
+                <span class="text-error" for="text" *ngIf="fname.touched && fname.invalid" >First name is invalid.</span>
+                <span class="text-error" for="text" *ngIf="fname.errors?.['minlength']" >Min length should be three.</span>
+                <span class="text-error" for="text" *ngIf="fname.errors?.['pattern']"  >Pattern didn't match.</span>
             </div>
             <div class="row-content">
                 <label for="lastName" class="label text">last Name</label>
